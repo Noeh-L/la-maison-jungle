@@ -1,0 +1,229 @@
+* {
+	box-sizing: border-box;
+}
+.lmj-cart {
+	color: white;
+	background-color: #31b572;
+	padding-top: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 350px;
+	border-left: solid 3px black;
+}
+
+.lmj-cart.isOpen { 
+	padding: 32px;
+	animation: cartOpen 0.4s;
+}
+.lmj-cart.isClosed { 
+	position: relative;
+	background-color: #f0f0f0;
+	width: 200px;
+	border-left: solid 3px black;
+	animation: cartClose 0.4s;
+}
+
+.lmj-cart-add-button {
+	margin-left: 32px;
+	cursor: pointer;
+}
+
+.lmj-cart-toggle-button {
+	outline: none;
+	border: none;
+	font-weight: 600;
+	cursor: pointer;
+	align-self: self-start;
+	padding: 0;
+	color: white;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.lmj-cart-toggle-button i {
+	font-size: 0.9rem;
+}
+
+.lmj-cart-toggle-button.closeCart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: self-end;
+	padding: 0.5rem;
+	width: 2rem;
+	aspect-ratio: 1;
+	border-radius: 6px;
+	background: hsl(150, 57%, 60%);
+	box-shadow: hsl(150, 45%, 47%) 0 2px 5px;
+	transition: background 0.3s ease;
+}
+.lmj-cart-toggle-button.closeCart:hover {
+	background: hsl(150, 74%, 61%);
+}
+.lmj-cart-toggle-button.closeCart:active {
+	background: hsl(150, 94%, 70%);
+}
+
+.lmj-cart-toggle-button.openCart {
+	position: relative;
+	background: #31b572;
+	align-self: center;
+	padding: 0.5rem 0.6rem;
+	border-radius: 6px;
+	box-shadow: hsl(0, 0%, 78%) 0 2px 5px;
+	transition: background 0.3s ease;
+}
+.lmj-cart-toggle-button.openCart:hover {
+	background: #4bce8c;
+}
+.lmj-cart-toggle-button.openCart:active {
+	background: #5defa6;
+}
+
+.quantityIndicator {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+	background: rgb(220, 53, 53);
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 0.8rem;
+	box-shadow: rgb(42, 42, 42) 0 0 4px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.displayFirstTime {
+	animation: upQtyIndicator 0.25s ease;
+}
+.hidden {
+	display: none;
+}
+
+
+
+
+@keyframes cartOpen {
+	from {
+		width: 200px;
+		background: #f0f0f0;
+	} to {
+		width: 350px;
+		background: #31b572;
+	}
+}
+@keyframes cartClose {
+	from {
+		width: 350px;
+		background: #31b572;
+	} to {
+		width: 200px;
+		background: #f0f0f0;
+	}
+}
+
+@keyframes addArticle {
+	from {
+		height: 0;
+		opacity: 0;
+	} to {
+		height: 100%;
+		opacity: 1;
+	}
+}
+@keyframes upQtyIndicator {
+	from {
+		width: 0.3rem;
+		height: 0.3rem;
+	} to {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
+
+.articlesAdded {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+.articleAdded {
+	background: hsl(150, 57%, 60%);
+	box-shadow: hsl(150, 45%, 47%) 0 2px 5px;
+	border-radius: 10px;
+	padding: 1rem 1.3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	font-weight: 600;
+}
+.articleAdded.appear {
+	animation: addArticle 0.7s;
+}
+
+.articleAdded .buttons {
+	display: flex;
+	gap: 0.5rem;
+	border-radius: 10px;
+	height: 2rem;
+}
+
+.articleAdded button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	background: hsl(150, 57%, 47%);
+	transition: all 0.1s ease;
+}
+.articleAdded button:hover {
+	background: hsl(150, 57%, 40%);
+}
+.articleAdded button:active {
+	background: hsl(150, 57%, 42%);
+}
+
+.articleAdded button i {
+	color: white;
+	font-size: 1rem;
+}
+.articleAdded button:nth-of-type(3):hover i {
+	color: rgb(255, 119, 119);
+	transition: all 0.2s ease;
+}
+
+.clearCart {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	background: hsl(150, 57%, 60%);
+	box-shadow: hsl(150, 45%, 47%) 0 2px 5px;
+	transition: all 0.1s ease;
+	padding: 1rem;
+	color: white;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+.clearCart:hover {
+	background: hsl(150, 57%, 55%);
+}
+.clearCart:active {
+	background: hsl(150, 57%, 50%);
+}
+
+.clearCart i {
+	font-size: 1.1rem;
+}
+
